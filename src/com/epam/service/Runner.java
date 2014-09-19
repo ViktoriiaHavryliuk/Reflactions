@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.epam.model.Car;
+import com.epam.model.ElectricCar;
 
 public class Runner {
 
@@ -17,12 +18,10 @@ public class Runner {
 		CarValidator.validate(car);
 		System.out.println(CarConverter.convertToString(car));
 		Map<String, Object> dataForBond = new HashMap<>();
-		dataForBond.put("model", "Bond's car");
-		dataForBond.put("power", 424242);
-		dataForBond.put("dateOfCreation", "18.09.2014");
 		dataForBond.put("timeOfCharge", 42);
-		Car bondsCar = CarFactory.create("com.epam.model.ElectricCar", dataForBond);
+		ElectricCar bondsCar = (ElectricCar) CarFactory.create("com.epam.model.ElectricCar", dataForBond);
 		CarValidator.validate(bondsCar);
+		System.out.println(CarConverter.convertToString(bondsCar));
 	}
 
 }
